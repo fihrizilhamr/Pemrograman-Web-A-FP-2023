@@ -1,4 +1,13 @@
 USE test;
+CREATE TABLE students (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    age INT(11) NOT NULL,
+    address TEXT NOT NULL,
+    contact_info VARCHAR(255) NOT NULL,
+    learning_history TEXT
+);
+
 CREATE TABLE `materi_pelajaran` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mata_pelajaran` varchar(50) NOT NULL,
