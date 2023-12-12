@@ -20,6 +20,10 @@ $select_bookmark = $conn->prepare("SELECT * FROM `bookmark` WHERE user_id = ?");
 $select_bookmark->execute([$user_id]);
 $total_bookmarked = $select_bookmark->rowCount();
 
+$select_booking = $conn->prepare("SELECT * FROM `booking` WHERE user_id = ?");
+$select_booking->execute([$user_id]);
+$total_booked = $select_booking->rowCount();
+
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +64,8 @@ $total_bookmarked = $select_bookmark->rowCount();
          <a href="comments.php" class="inline-btn">Lihat Komentar</a>
          <p>Playlist tersimpan: <span><?= $total_bookmarked; ?></span></p>
          <a href="bookmark.php" class="inline-btn">Lihat Bookmark</a>
+         <p>Booking tersimpan: <span><?= $total_booked; ?></span></p>
+         <a href="booking.php" class="inline-btn">Lihat Jadwal</a>
       </div>
       <?php
          }else{ 
@@ -79,25 +85,25 @@ $total_bookmarked = $select_bookmark->rowCount();
          <h3 class="title">Kategori Teratas</h3>
          <div class="flex">
             <a href="search_course.php?"><i class="fas fa-code"></i><span>Developer</span></a>
-            <a href="#"><i class="fas fa-chart-simple"></i><span>Bisnis</span></a>
-            <a href="#"><i class="fas fa-pen"></i><span>Desain</span></a>
-            <a href="#"><i class="fas fa-chart-line"></i><span>Pemasaran</span></a>
-            <a href="#"><i class="fas fa-music"></i><span>Musik</span></a>
-            <a href="#"><i class="fas fa-camera"></i><span>Fotografi</span></a>
-            <a href="#"><i class="fas fa-cog"></i><span>Perangkat Lunak</span></a>
-            <a href="#"><i class="fas fa-vial"></i><span>Ilmu Pengetahuan</span></a>
+            <a href="search_course.php?"><i class="fas fa-chart-simple"></i><span>Bisnis</span></a>
+            <a href="search_course.php?"><i class="fas fa-pen"></i><span>Desain</span></a>
+            <a href="search_course.php?"><i class="fas fa-chart-line"></i><span>Pemasaran</span></a>
+            <a href="search_course.php?"><i class="fas fa-music"></i><span>Musik</span></a>
+            <a href="search_course.php?"><i class="fas fa-camera"></i><span>Fotografi</span></a>
+            <a href="search_course.php?"><i class="fas fa-cog"></i><span>Perangkat Lunak</span></a>
+            <a href="search_course.php?"><i class="fas fa-vial"></i><span>Ilmu Pengetahuan</span></a>
          </div>
       </div>
 
       <div class="box">
          <h3 class="title">Topik Populer</h3>
          <div class="flex">
-            <a href="#"><i class="fab fa-html5"></i><span>HTML</span></a>
-            <a href="#"><i class="fab fa-css3"></i><span>CSS</span></a>
-            <a href="#"><i class="fab fa-js"></i><span>Javascript</span></a>
-            <a href="#"><i class="fab fa-react"></i><span>React</span></a>
-            <a href="#"><i class="fab fa-php"></i><span>PHP</span></a>
-            <a href="#"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></a>
+            <a href="search_course.php?"><i class="fab fa-html5"></i><span>HTML</span></a>
+            <a href="search_course.php?"><i class="fab fa-css3"></i><span>CSS</span></a>
+            <a href="search_course.php?"><i class="fab fa-js"></i><span>Javascript</span></a>
+            <a href="search_course.php?"><i class="fab fa-react"></i><span>React</span></a>
+            <a href="search_course.php?"><i class="fab fa-php"></i><span>PHP</span></a>
+            <a href="search_course.php?"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></a>
          </div>
       </div>
 
@@ -122,8 +128,8 @@ $total_bookmarked = $select_bookmark->rowCount();
    <div class="box-container">
 
       <?php
-         $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE status = ? ORDER BY date DESC LIMIT 6");
-         $select_courses->execute(['active']);
+         $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE status = ? or status = ? ORDER BY date DESC LIMIT 6");
+         $select_courses->execute(['active', 'aktif']);
          if($select_courses->rowCount() > 0){
             while($fetch_course = $select_courses->fetch(PDO::FETCH_ASSOC)){
                $course_id = $fetch_course['id'];

@@ -100,6 +100,7 @@ if(isset($message)){
       <a href="home.php"><i class="fas fa-home"></i><span>Beranda</span></a>
       <a href="about.php"><i class="fas fa-question"></i><span>Tentang Kami</span></a>
       <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>Kursus</span></a>
+      <a href="schedule.php"><i class="fas fa-calendar-alt"></i><span>Jadwal Bimbingan</span></a>
       <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>Pengajar</span></a>
       <a href="contact.php"><i class="fas fa-headset"></i><span>Hubungi Kami</span></a>
    </nav>

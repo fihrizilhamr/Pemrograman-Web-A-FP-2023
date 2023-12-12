@@ -20,6 +20,17 @@ CREATE TABLE `bookmark` (
 -- --------------------------------------------------------
 
 --
+-- Struktur tabel untuk tabel `booking`
+--
+
+CREATE TABLE `booking` (
+  `user_id` varchar(20) NOT NULL,
+  `counseling_schedule_id` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur tabel untuk tabel `comments`
 --
 
@@ -63,6 +74,20 @@ CREATE TABLE `content` (
   `status` varchar(20) NOT NULL DEFAULT 'deactive'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Struktur tabel untuk tabel `counseling_schedule`
+--
+
+CREATE TABLE `counseling_schedule` (
+  `id` varchar(20) NOT NULL,
+  `tutor_id` varchar(20) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 
 --
@@ -124,3 +149,6 @@ CREATE TABLE `users` (
   `educational_history` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
+
+
+

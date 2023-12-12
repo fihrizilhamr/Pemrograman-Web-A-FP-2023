@@ -41,8 +41,8 @@ if(isset($_COOKIE['user_id'])){
          $select_bookmark->execute([$user_id]);
          if($select_bookmark->rowCount() > 0){
             while($fetch_bookmark = $select_bookmark->fetch(PDO::FETCH_ASSOC)){
-               $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? AND status = ? ORDER BY date DESC");
-               $select_courses->execute([$fetch_bookmark['playlist_id'], 'active']);
+               $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? AND (status = ? or status = ?) ORDER BY date DESC");
+               $select_courses->execute([$fetch_bookmark['playlist_id'], 'active', 'aktif']);
                if($select_courses->rowCount() > 0){
                   while($fetch_course = $select_courses->fetch(PDO::FETCH_ASSOC)){
 

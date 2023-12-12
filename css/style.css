@@ -506,6 +506,139 @@ section{
    text-align: center;
 }
 
+.booked .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 35rem);
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+
+.booked .box-container .box {
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding: 2rem;
+}
+
+.booked .box-container .box .tutor {
+   margin-bottom: 2rem;
+   display: flex;
+   align-items: center;
+   gap: 2rem;
+}
+
+.booked .box-container .box .tutor img {
+   width: 5rem;
+   height: 5rem;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-bottom: .5rem;
+}
+
+.booked .box-container .box .tutor h3 {
+   font-size: 2rem;
+   color: var(--black);
+   margin-bottom: .2rem;
+}
+
+.booked .box-container .box .tutor span {
+   font-size: 1.5rem;
+   color: var(--light-color);
+}
+
+.booked .box-container .box .thumb {
+   width: 100%;
+   border-radius: .5rem;
+   height: 20rem;
+   object-fit: cover;
+   margin-bottom: .3rem;
+}
+
+.booked .box-container .box .subject {
+   font-size: 2rem;
+   color: var(--black);
+   margin-top: .5rem;
+   padding: .5rem 0;
+}
+
+.booked .box-container .box .date,
+.booked .box-container .box .time {
+   font-size: 1.7rem;
+   padding-top: .5rem;
+   display: flex;
+   align-items: center;
+}
+
+.booked .box-container .box .date i,
+.booked .box-container .box .time i {
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.booked .box-container .box .date span,
+.booked .box-container .box .time span {
+   color: var(--light-color);
+}
+
+.booked .more-btn {
+   margin-top: 2rem;
+   text-align: center;
+}
+
+
+.schedule .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 35rem);
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+
+.schedule .box-container .box {
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding: 2rem;
+}
+
+.schedule .box-container .box .tutor {
+   margin-bottom: 2rem;
+   display: flex;
+   align-items: center;
+   gap: 2rem;
+}
+
+.schedule .box-container .box .tutor img {
+   width: 5rem;
+   height: 5rem;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-bottom: .5rem;
+}
+
+.schedule .box-container .box .tutor h3 {
+   font-size: 2rem;
+   color: var(--black);
+   margin-bottom: .2rem;
+}
+
+.schedule .box-container .box .tutor span {
+   font-size: 1.5rem;
+   color: var(--light-color);
+}
+
+.schedule .box-container .box h3.title {
+   font-size: 2rem;
+   color: var(--black);
+   margin-top: .5rem;
+   padding: .5rem 0;
+}
+
+.schedule .empty {
+   text-align: center;
+   margin-top: 2rem;
+}
+
+
 .about .row{
    display: flex;
    align-items: center;
@@ -617,6 +750,134 @@ section{
    color: var(--main-color);
    font-size: 1.5rem;
 }
+
+.schedule-container .row {
+   display: flex;
+   align-items: center;
+   gap: 2.5rem;
+   flex-wrap: wrap;
+   padding: 2rem;
+   background-color: var(--white);
+}
+
+.schedule-container .row .col {
+   flex: 1 1 40rem;
+}
+
+.schedule-container .row .col .save-list button {
+   font-size: 2rem;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1.2rem 2.5rem;
+   cursor: pointer;
+   margin-bottom: 2rem;
+}
+
+.schedule-container .row .col .save-list button i {
+   color: var(--black);
+   margin-right: 1rem;
+}
+
+.schedule-container .row .col .save-list button span {
+   color: var(--light-color);
+}
+
+.schedule-container .row .col .save-list button:hover {
+   background-color: var(--black);
+}
+
+.schedule-container .row .col .save-list button:hover i {
+   color: var(--white);
+}
+
+.schedule-container .row .col .save-list button:hover span {
+   color: var(--white);
+}
+
+.schedule-container .row .col .box {
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem;
+}
+
+.schedule-container .row .col .box h3 {
+   font-size: 2rem;
+   color: var(--black);
+   margin-bottom: .2rem;
+}
+
+.schedule-container .row .col .box .date,
+.schedule-container .row .col .box .time {
+   font-size: 1.7rem;
+}
+
+.schedule-container .row .col .box .date i,
+.schedule-container .row .col .box .time i {
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.schedule-container .row .col .box .date span,
+.schedule-container .row .col .box .time span {
+   color: var(--light-color);
+}
+
+.schedule-container .row .col .tutor {
+   display: flex;
+   align-items: center;
+   gap: 1.7rem;
+}
+
+.schedule-container .row .col .tutor img {
+   height: 7rem;
+   width: 7rem;
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+.schedule-container .row .col .tutor h3 {
+   font-size: 2rem;
+   color: var(--black);
+   margin-bottom: .2rem;
+}
+
+.schedule-container .row .col .tutor span {
+   color: var(--main-color);
+   font-size: 1.5rem;
+}
+
+.schedule-container .row .col .details {
+   padding-top: 1.5rem;
+}
+
+.schedule-container .row .col .details h3 {
+   font-size: 2rem;
+   color: var(--black);
+}
+
+.schedule-container .row .col .details p {
+   padding: 1rem 0;
+   line-height: 2;
+   color: var(--light-color);
+   font-size: 1.7rem;
+}
+
+.schedule-container .row .col .details .date {
+   font-size: 1.7rem;
+   padding-top: .5rem;
+}
+
+.schedule-container .row .col .details .date i {
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.schedule-container .row .col .details .date span {
+   color: var(--light-color);
+}
+
+
+
 
 .playlist .row{
    display: flex;

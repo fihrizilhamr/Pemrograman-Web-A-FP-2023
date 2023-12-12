@@ -71,6 +71,10 @@ if(isset($_COOKIE['user_id'])){
                $count_comments = $conn->prepare("SELECT * FROM `comments` WHERE tutor_id = ?");
                $count_comments->execute([$tutor_id]);
                $total_comments = $count_comments->rowCount();
+
+               $select_schedules = $conn->prepare("SELECT * FROM `counseling_schedule` WHERE tutor_id = ?");
+               $select_schedules->execute([$tutor_id]);
+               $total_schedules = $select_schedules->rowCount();
       ?>
       <div class="box">
          <div class="tutor">
@@ -84,6 +88,7 @@ if(isset($_COOKIE['user_id'])){
          <p>Total video: <span><?= $total_contents ?></span></p>
          <p>Total suka: <span><?= $total_likes ?></span></p>
          <p>Total komentar: <span><?= $total_comments ?></span></p>
+         <p>Total jadwal: <span><?= $total_schedules ?></span></p>
          <form action="tutor_profile.php" method="post">
             <input type="hidden" name="tutor_email" value="<?= $fetch_tutor['email']; ?>">
             <input type="submit" value="Lihat Profil" name="tutor_fetch" class="inline-btn">

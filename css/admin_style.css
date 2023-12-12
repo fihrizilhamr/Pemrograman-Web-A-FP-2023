@@ -725,6 +725,171 @@ section{
    margin: .5rem 0;
 }
 
+.schedule-form form {
+   max-width: 50rem;
+   margin: 0 auto;
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem;
+   padding-top: 1rem;
+}
+
+.schedule-form form p {
+   padding-top: 1rem;
+   font-size: 1.7rem;
+   color: var(--light-color);
+}
+
+.schedule-form form p span {
+   color: var(--gray);
+}
+
+.schedule-form form .box {
+   width: 100%;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1.4rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   margin: 1rem 0;
+}
+
+.schedule-form form select {
+   width: 100%;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1.4rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   margin: 1rem 0;
+}
+
+.schedule-form form textarea {
+   height: 20rem;
+   resize: none;
+   width: 100%;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1.4rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   margin: 1rem 0;
+}
+
+.schedule-form form input[type="date"],
+.schedule-form form input[type="time"] {
+   width: 100%;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1.4rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   margin: 1rem 0;
+}
+
+.view-schedule .row {
+   display: flex;
+   gap: 2.5rem;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem;
+}
+
+.view-schedule .row .details {
+   flex: 1 1 40rem;
+}
+
+.view-schedule .row .details .date,
+.playlist-details .row .details .date {
+   font-size: 1.5rem;
+   margin: 1rem 0;
+}
+
+.view-schedule .row .details .date i,
+.playlist-details .row .details .date i {
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.view-schedule .row .details .date span,
+.playlist-details .row .details .date span {
+   color: var(--light-color);
+}
+
+.view-schedule .row .details .title,
+.playlist-details .row .details .title {
+   font-size: 2rem;
+   color: var(--black);
+   padding-bottom: .5rem;
+}
+
+.view-schedule .row .details .time {
+   font-size: 1.5rem;
+   margin: 1rem 0;
+}
+
+.view-schedule .row .details .time i {
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.view-schedule .row .details .time span {
+   color: var(--light-color);
+}
+
+.view-schedule .row .details .status {
+   font-size: 1.5rem;
+   margin: 1rem 0;
+}
+
+.view-schedule .row .details .status i {
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.view-schedule .row .details .status span {
+   color: var(--light-color);
+}
+
+.view-schedule .row .details form,
+.playlist-details .row .details form {
+   display: flex;
+   margin-top: 1rem;
+}
+
+.view-schedule .row .details form .btn,
+.playlist-details .row .details form .btn {
+   background-color: var(--main-color);
+   color: var(--white);
+   padding: 0.7rem 1.5rem;
+   border: none;
+   border-radius: 0.3rem;
+   cursor: pointer;
+}
+
+.view-schedule .row .details form .btn:hover,
+.playlist-details .row .details form .btn:hover {
+   background-color: #0056b3;
+}
+
+
+/* .schedule-form form input[type="submit"] {
+   width: 100%;
+   border-radius: .5rem;
+   background-color: var(--primary-color);
+   padding: 1.5rem;
+   font-size: 2rem;
+   color: var(--white);
+   cursor: pointer;
+}
+
+.schedule-form form input[type="submit"]:hover {
+   background-color: var(--primary-hover-color);
+} */
+
+
 .playlist-details .row{
    display: flex;
    gap: 2.5rem;
@@ -839,6 +1004,58 @@ section{
    text-overflow: ellipsis;
    overflow-x: hidden;
 }
+
+.schedules .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 35rem);
+   align-items: flex-start;
+   justify-content: center;
+   gap: 1.5rem;
+}
+
+.schedules .box-container .box{
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding: 2rem;
+   overflow-x: hidden;
+}
+
+.schedules .box-container .box .thumb{
+   height: 20rem;
+   width: 100%;
+   border-radius: .5rem;
+   object-fit: cover;
+   margin: 1rem 0;
+}
+
+.schedules .box-container .box .flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1.5rem;
+   margin-bottom: .5rem;
+}
+
+.schedules .box-container .box .flex i{
+   font-size: 1.5rem;
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.schedules .box-container .box .flex span{
+   color: var(--light-color);
+   font-size: 1.7rem;
+}
+
+.schedules .box-container .box .title{
+   font-size: 2rem;
+   color: var(--black);
+   line-height: 1.5;
+   text-overflow: ellipsis;
+   overflow-x: hidden;
+}
+
+
 
 .view-content .container{
    background-color: var(--white);

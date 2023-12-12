@@ -21,11 +21,10 @@ if(isset($_POST['submit'])){
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
 
-  if(!empty($name)){
-   $update_name = $conn->prepare("UPDATE `users` SET name = ? WHERE id = ?");
-   $update_name->execute([$name, $user_id]);
-   $message[] = 'Username berhasil diperbarui!';
-  }
+   if(!empty($name)){
+      $update_name = $conn->prepare("UPDATE `users` SET name = ? WHERE id = ?");
+      $update_name->execute([$name, $user_id]);
+   }
 
    $email = $_POST['email'];
    $email = filter_var($email, FILTER_SANITIZE_STRING);
@@ -38,9 +37,28 @@ if(isset($_POST['submit'])){
       }else{
          $update_email = $conn->prepare("UPDATE `users` SET email = ? WHERE id = ?");
          $update_email->execute([$email, $user_id]);
-         $message[] = 'Email berhasil diperbarui!';
       }
    }
+
+   $age = $_POST['age'];
+   $age = filter_var($age, FILTER_SANITIZE_NUMBER_INT);
+   $update_age = $conn->prepare("UPDATE `users` SET age = ? WHERE id = ?");
+   $update_age->execute([$age, $user_id]);
+
+   $address = $_POST['address'];
+   $address = filter_var($address, FILTER_SANITIZE_STRING);
+   $update_address = $conn->prepare("UPDATE `users` SET address = ? WHERE id = ?");
+   $update_address->execute([$address, $user_id]);
+
+   $contact_data = $_POST['contact_data'];
+   $contact_data = filter_var($contact_data, FILTER_SANITIZE_STRING);
+   $update_contact_data = $conn->prepare("UPDATE `users` SET contact_data = ? WHERE id = ?");
+   $update_contact_data->execute([$contact_data, $user_id]);
+
+   $educational_history = $_POST['educational_history'];
+   $educational_history = filter_var($educational_history, FILTER_SANITIZE_STRING);
+   $update_educational_history = $conn->prepare("UPDATE `users` SET educational_history = ? WHERE id = ?");
+   $update_educational_history->execute([$educational_history, $user_id]);
 
    $image = $_FILES['image']['name'];
    $image = filter_var($image, FILTER_SANITIZE_STRING);
@@ -60,7 +78,6 @@ if(isset($_POST['submit'])){
          if($prev_image != '' AND $prev_image != $rename){
             unlink('uploaded_files/'.$prev_image);
          }
-         $message[] = 'Gambar berhasil diperbarui!';
       }
    }
 
@@ -81,7 +98,6 @@ if(isset($_POST['submit'])){
          if($new_pass != $empty_pass){
             $update_pass = $conn->prepare("UPDATE `users` SET password = ? WHERE id = ?");
             $update_pass->execute([$cpass, $user_id]);
-            $message[] = 'Password berhasil diperbarui!';
          }else{
             $message[] = 'Harap masukkan password baru!';
          }
@@ -121,16 +137,22 @@ if(isset($_POST['submit'])){
             <input type="text" name="name" placeholder="<?= $fetch_profile['name']; ?>" maxlength="100" class="box">
             <p>Email Anda</p>
             <input type="email" name="email" placeholder="<?= $fetch_profile['email']; ?>" maxlength="100" class="box">
+            <p>Umur Anda</p>
+            <input type="number" name="age" placeholder="<?= $fetch_user['age']; ?>" class="box">
+            <p>Alamat Anda</p>
+            <input type="text" name="address" placeholder="<?= $fetch_user['address']; ?>" class="box">
+            <p>Nomer Telepon Anda</p>
+            <input type="tel" name="contact_data" placeholder="<?= $fetch_user['contact_data']; ?>" class="box">
+            <p>Riwayat Pendidikan</p>
+            <textarea name="educational_history" placeholder="<?= $fetch_user['educational_history']; ?>" class="box"></textarea>
+            <p>Password Lama</p>
+            <input type="password" name="old_pass" placeholder="Masukkan password lama Anda" maxlength="50" class="box">
+            <p>Password Baru</p>
+            <input type="password" name="new_pass" placeholder="Masukkan password baru Anda" maxlength="50" class="box">
+            <p>Konfirmasi Password Baru</p>
+            <input type="password" name="cpass" placeholder="Konfirmasi password baru Anda" maxlength="50" class="box">
             <p>Perbarui Gambar</p>
             <input type="file" name="image" accept="image/*" class="box">
-         </div>
-         <div class="col">
-               <p>Password Lama</p>
-               <input type="password" name="old_pass" placeholder="Masukkan password lama Anda" maxlength="50" class="box">
-               <p>Password Baru</p>
-               <input type="password" name="new_pass" placeholder="Masukkan password baru Anda" maxlength="50" class="box">
-               <p>Konfirmasi Password Baru</p>
-               <input type="password" name="cpass" placeholder="Konfirmasi password baru Anda" maxlength="50" class="box">
          </div>
       </div>
       <input type="submit" name="submit" value="Perbarui Profil" class="btn">

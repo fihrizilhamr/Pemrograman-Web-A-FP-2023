@@ -34,6 +34,9 @@ if(isset($_POST['tutor_fetch'])){
    $count_comments->execute([$tutor_id]);
    $total_comments = $count_comments->rowCount();
 
+   $select_schedules = $conn->prepare("SELECT * FROM `counseling_schedule` WHERE tutor_id = ?");
+   $select_schedules->execute([$tutor_id]);
+   $total_schedules = $select_schedules->rowCount();
 }else{
    header('location:teachers.php');
 }
@@ -77,6 +80,7 @@ if(isset($_POST['tutor_fetch'])){
          <p>Total video : <span><?= $total_contents; ?></span></p>
          <p>Total suka : <span><?= $total_likes; ?></span></p>
          <p>Total komentar : <span><?= $total_comments; ?></span></p>
+         <p>Total jadwal : <span><?= $total_schedules; ?></span></p>
       </div>
    </div>
 
@@ -91,8 +95,8 @@ if(isset($_POST['tutor_fetch'])){
    <div class="box-container">
 
       <?php
-         $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ? AND status = ?");
-         $select_courses->execute([$tutor_id, 'active']);
+         $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ? AND (status = ? or status = ?)");
+         $select_courses->execute([$tutor_id, 'active', 'aktif']);
          if($select_courses->rowCount() > 0){
             while($fetch_course = $select_courses->fetch(PDO::FETCH_ASSOC)){
                $course_id = $fetch_course['id'];

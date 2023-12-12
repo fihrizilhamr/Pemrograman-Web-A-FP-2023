@@ -38,8 +38,8 @@ if(isset($_COOKIE['user_id'])){
    <div class="box-container">
 
       <?php
-         $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE status = ? ORDER BY date DESC");
-         $select_courses->execute(['active']);
+         $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE status = ? OR status = ? ORDER BY date DESC");
+         $select_courses->execute(['aktif', 'active']);
          if($select_courses->rowCount() > 0){
             while($fetch_course = $select_courses->fetch(PDO::FETCH_ASSOC)){
                $course_id = $fetch_course['id'];

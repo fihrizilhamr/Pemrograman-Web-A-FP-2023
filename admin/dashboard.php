@@ -25,6 +25,9 @@ $select_comments = $conn->prepare("SELECT * FROM `comments` WHERE tutor_id = ?")
 $select_comments->execute([$tutor_id]);
 $total_comments = $select_comments->rowCount();
 
+$select_schedules = $conn->prepare("SELECT * FROM `counseling_schedule` WHERE tutor_id = ?");
+$select_schedules->execute([$tutor_id]);
+$total_schedules = $select_schedules->rowCount();
 ?>
 
 <!DOCTYPE html>
@@ -80,6 +83,12 @@ $total_comments = $select_comments->rowCount();
          <h3><?= $total_comments; ?></h3>
          <p>Total komentar</p>
          <a href="comments.php" class="btn">Lihat komentar</a>
+      </div>
+
+      <div class="box">
+         <h3><?= $total_schedules; ?></h3>
+         <p>Total jadwal bimbingan</p>
+         <a href="schedule.php" class="btn">Lihat jadwal</a>
       </div>
 
       <div class="box">

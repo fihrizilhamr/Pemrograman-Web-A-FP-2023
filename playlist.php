@@ -71,8 +71,8 @@ if(isset($_POST['save_list'])){
    <div class="row">
 
       <?php
-         $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? and status = ? LIMIT 1");
-         $select_playlist->execute([$get_id, 'active']);
+         $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? and (status = ? or status = ?) LIMIT 1");
+         $select_playlist->execute([$get_id, 'active', 'aktif']);
          if($select_playlist->rowCount() > 0){
             $fetch_playlist = $select_playlist->fetch(PDO::FETCH_ASSOC);
 
@@ -148,8 +148,8 @@ if(isset($_POST['save_list'])){
    <div class="box-container">
 
       <?php
-         $select_content = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ? AND status = ? ORDER BY date DESC");
-         $select_content->execute([$get_id, 'active']);
+         $select_content = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ? AND (status = ? or status = ?) ORDER BY date DESC");
+         $select_content->execute([$get_id, 'active', 'aktif']);
          if($select_content->rowCount() > 0){
             while($fetch_content = $select_content->fetch(PDO::FETCH_ASSOC)){  
       ?>

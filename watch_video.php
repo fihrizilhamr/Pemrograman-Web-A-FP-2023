@@ -177,8 +177,8 @@ if(isset($_POST['update_now'])){
 <section class="watch-video">
 
    <?php
-      $select_content = $conn->prepare("SELECT * FROM `content` WHERE id = ? AND status = ?");
-      $select_content->execute([$get_id, 'active']);
+      $select_content = $conn->prepare("SELECT * FROM `content` WHERE id = ? AND (status = ? or status = ?)");
+      $select_content->execute([$get_id, 'active', 'aktif']);
       if($select_content->rowCount() > 0){
          while($fetch_content = $select_content->fetch(PDO::FETCH_ASSOC)){
             $content_id = $fetch_content['id'];
