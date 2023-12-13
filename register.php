@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
    $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
 
    $age = $_POST['age'];
-   $age = filter_var($age, FILTER_SANITIZE_NUMBER_INT);
+   $age = filter_var($age, FILTER_SANITIZE_STRING);
 
    $address = $_POST['address'];
    $address = filter_var($address, FILTER_SANITIZE_STRING);
@@ -97,7 +97,7 @@ if(isset($_POST['submit'])){
             <p>Email Anda <span>*</span></p>
             <input type="email" name="email" placeholder="Masukkan email Anda" maxlength="20" required class="box">
             <p>Umur Anda <span>*</span></p>
-            <input type="number" name="age" placeholder="Masukkan umur Anda" required class="box">
+            <input type="tel" name="age" placeholder="Masukkan umur Anda" required class="box">
             <p>Alamat Anda <span>*</span></p>
             <input type="text" name="address" placeholder="Masukkan alamat Anda" required class="box">
             <p>Nomer Telepon Anda <span>*</span></p>

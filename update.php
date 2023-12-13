@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
    }
 
    $age = $_POST['age'];
-   $age = filter_var($age, FILTER_SANITIZE_NUMBER_INT);
+   $age = filter_var($age, FILTER_SANITIZE_STRING);
    $update_age = $conn->prepare("UPDATE `users` SET age = ? WHERE id = ?");
    $update_age->execute([$age, $user_id]);
 
@@ -138,13 +138,13 @@ if(isset($_POST['submit'])){
             <p>Email Anda</p>
             <input type="email" name="email" placeholder="<?= $fetch_profile['email']; ?>" maxlength="100" class="box">
             <p>Umur Anda</p>
-            <input type="number" name="age" placeholder="<?= $fetch_user['age']; ?>" class="box">
+            <input type="tel" name="age" placeholder="<?= $fetch_profile['age']; ?>" class="box">
             <p>Alamat Anda</p>
-            <input type="text" name="address" placeholder="<?= $fetch_user['address']; ?>" class="box">
+            <input type="text" name="address" placeholder="<?= $fetch_profile['address']; ?>" class="box">
             <p>Nomer Telepon Anda</p>
-            <input type="tel" name="contact_data" placeholder="<?= $fetch_user['contact_data']; ?>" class="box">
+            <input type="tel" name="contact_data" placeholder="<?= $fetch_profile['contact_data']; ?>" class="box">
             <p>Riwayat Pendidikan</p>
-            <textarea name="educational_history" placeholder="<?= $fetch_user['educational_history']; ?>" class="box"></textarea>
+            <textarea name="educational_history" placeholder="<?= $fetch_profile['educational_history']; ?>" class="box"></textarea>
             <p>Password Lama</p>
             <input type="password" name="old_pass" placeholder="Masukkan password lama Anda" maxlength="50" class="box">
             <p>Password Baru</p>
